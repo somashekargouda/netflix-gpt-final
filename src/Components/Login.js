@@ -11,6 +11,7 @@ import {
 } from "firebase/auth";
 import addUser from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
+import { userAvatar } from "../utils/constant";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/48977162?v=4",
+            photoURL: userAvatar,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -58,8 +59,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-
-              navigate("/browse", { replace: true }); // Redirect to browse page after sign up
             })
             .catch((error) => {
               const errorCode = error.code;
@@ -84,8 +83,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log("User signed in successfully:", user);
-          navigate("/browse", { replace: true }); // Redirect to browse page after sign in
         })
         .catch((error) => {
           const errorCode = error.code;
