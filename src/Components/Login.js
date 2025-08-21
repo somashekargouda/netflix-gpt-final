@@ -65,8 +65,6 @@ const Login = () => {
               const errorMessage = error.message;
               setErrorMessage(errorCode + "-" + errorMessage);
             });
-          console.log("User signed up successfully:", user);
-          // navigate("/browse", { replace: true }); // Redirect to browse page after sign up
         })
         .catch((error) => {
           const errorCode = error.code;
