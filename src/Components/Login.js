@@ -11,7 +11,7 @@ import {
 } from "firebase/auth";
 import addUser from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
-import { userAvatar } from "../utils/constant";
+import { backgroundImageURL, userAvatar } from "../utils/constant";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -95,10 +95,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/75b0ed49-75ab-4a63-bd45-37bc2c95cb73/web/IN-en-20250623-TRIFECTA-perspective_ae5833b7-6ce5-4e88-853e-014f38c506f1_small.jpg"
-          alt="logo"
-        />
+        <img src={backgroundImageURL} alt="logo" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
